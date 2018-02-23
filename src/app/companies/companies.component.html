@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div  *ngIf="companies" class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource" matSort>
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+
+    <!-- First Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </mat-header-cell>
+      <mat-cell *matCellDef="let company"> {{company.company_name}} </mat-cell>
+    </ng-container>
+
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+      <mat-cell *matCellDef="let company"> {{company.address}} </mat-cell>
+    </ng-container>
+
+    <!-- Company Column -->
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>
+      <mat-cell *matCellDef="let company"> {{company.country}} </mat-cell>
+    </ng-container>
+
+     Email Column
+    <ng-container matColumnDef="customers">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> customers </mat-header-cell>
+      <mat-cell *matCellDef="let company"> {{company.customers.split(",").length}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

@@ -1,0 +1,19 @@
+<div>
+<mat-form-field>
+  <input matInput type="text" [(ngModel)]="firstName" placeholder="First Name">
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput type="text" [(ngModel)]="lastName" placeholder="Last Name">
+</mat-form-field>
+<mat-form-field>
+  <input matInput type="text" [(ngModel)]="companyName" placeholder="Company Name">
+</mat-form-field>
+<mat-form-field>
+  <input matInput type="text" [(ngModel)]="phone" placeholder="phone">
+</mat-form-field>
+  <mat-form-field>
+  <input matInput type="text" [(ngModel)]="email" placeholder="email">
+</mat-form-field>
+  <button mat-raised-button color="accent" (click)="newUser()">Add new Customer</button>
+</div>
