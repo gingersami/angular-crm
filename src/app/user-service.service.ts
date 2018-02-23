@@ -18,6 +18,6 @@ export class CustomerService {
   }
 
   sendUser(customer):Observable<customer> {
-   return this.http.post<customer>('api/cutomers',customer)
+   return this.http.post<customer>('api/customers',customer)
   }
 }

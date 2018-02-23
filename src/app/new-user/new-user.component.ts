@@ -16,7 +16,7 @@ export class NewUserComponent implements OnInit {
   firstName = '';
   lastName = '';
   companyName = '';
-  phone = '';
+  phone = 0;
   email = '';
 
   constructor(private customerSerive: CustomerService) { }
@@ -25,8 +25,7 @@ export class NewUserComponent implements OnInit {
   }
 
   newUser() {
-    const customer = {firstName: this.firstName, lastName: this.lastName, customer_email: this.email, phone: this.phone, company_name: this.companyName};
-    console.log(customer);
+    let customer = new Customer(this.firstName,this.lastName,this.companyName,this.email,this.phone)
     this.customerSerive.sendUser(customer).subscribe(data=>{
       console.log(data)
     });

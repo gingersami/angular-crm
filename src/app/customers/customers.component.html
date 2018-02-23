@@ -1,11 +1,33 @@
 <app-navbar></app-navbar>
-<div  *ngIf="customers" class="example-container mat-elevation-z8">
+
+<h1>Customers</h1>
+<div class="example-container mat-elevation-z8">
+    <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Filter Data
+            </mat-panel-title>
+              </mat-expansion-panel-header>
+      
+              <div class="example-header">
+                  <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                  </mat-form-field>
+                </div>
+      
+             </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Add new User
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <app-new-user></app-new-user>
+        </mat-expansion-panel>
+      </mat-accordion>  
   <mat-table #table [dataSource]="dataSource" matSort>
-    <div class="example-header">
-      <mat-form-field>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-      </mat-form-field>
-    </div>
 
     <!-- First Name Column -->
     <ng-container matColumnDef="firstName">
@@ -36,4 +58,4 @@
   </mat-table>
 </div>
 
-<app-new-user></app-new-user>
+<!-- *ngIf='customers' -->

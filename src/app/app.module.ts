@@ -16,6 +16,9 @@ import { CompaniesComponent } from './companies/companies.component';
 import {CompanyService} from './company.service';
 import { NewUserComponent } from './new-user/new-user.component';
 import {MatButtonModule} from '@angular/material/button';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { NewCompanyComponent } from './new-company/new-company.component';
+
 
 
 
@@ -26,7 +29,8 @@ import {MatButtonModule} from '@angular/material/button';
     HomeComponent,
     CustomersComponent,
     CompaniesComponent,
-    NewUserComponent
+    NewUserComponent,
+    NewCompanyComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatInputModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatExpansionModule,
   ],
   providers: [CustomerService, CompanyService],
   bootstrap: [AppComponent]

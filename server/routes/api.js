@@ -41,7 +41,7 @@ router.get('/companies', (req, res) => {
 
 router.post('/companies', (req, res) => {
   let company = new Object({
-    company_name: req.body.company_name,
+    company_name: req.body.name,
     address: req.body.address,
     country: req.body.country
   });
@@ -56,11 +56,12 @@ router.post('/companies', (req, res) => {
 
 
 router.post('/customers', (req, res) => {
+  console.log(req.body)
   let customer = new Object()
   customer.firstName = req.body.firstName;
   customer.lastName = req.body.lastName;
-  customer.company_name = req.body.company;
-  customer.customer_email = req.body.email;
+  customer.company_name = req.body.company_name;
+  customer.customer_email = req.body.customer_email;
   customer.phone = req.body.phone;
 
 
