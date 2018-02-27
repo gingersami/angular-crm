@@ -16,8 +16,8 @@ export class CompanyService {
     return this.http.get<Company[]>('api/companies');
   }
 
-  newCompany(company):Observable<Company>{
-    return this.http.post<Company>('/api/companies', company)
+  sendCompany(company): Observable<Company> {
+    return this.http.post<Company>('api/companies', company);
   }
 
 }

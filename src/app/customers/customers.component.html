@@ -9,13 +9,13 @@
               Filter Data
             </mat-panel-title>
               </mat-expansion-panel-header>
-      
+
               <div class="example-header">
                   <mat-form-field>
                     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
                   </mat-form-field>
                 </div>
-      
+
              </mat-expansion-panel>
         <mat-expansion-panel (opened)="panelOpenState = true"
                              (closed)="panelOpenState = false">
@@ -24,9 +24,9 @@
               Add new User
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <app-new-user></app-new-user>
+          <app-new-user (refresh)="refreshData()"></app-new-user>
         </mat-expansion-panel>
-      </mat-accordion>  
+      </mat-accordion>
   <mat-table #table [dataSource]="dataSource" matSort>
 
     <!-- First Name Column -->
@@ -51,6 +51,11 @@
     <ng-container matColumnDef="email">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
       <mat-cell *matCellDef="let customer"> {{customer.customer_email}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="info">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>More Info</mat-header-cell>
+      <mat-cell *matCellDef='let customer'><button mat-raised-button [routerLink]='["customer",customer.customer_email]'>More Info</button></mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

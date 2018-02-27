@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import {Component, OnInit, ViewChild, AfterViewInit, Output, EventEmitter} from '@angular/core';
 import {Customer} from '../Models/Customer';
 import {CustomerService} from '../user-service.service';
 import {MatTableDataSource} from '@angular/material';
@@ -11,7 +11,7 @@ import {MatTableDataSource} from '@angular/material';
 export class CustomersComponent implements OnInit {
 
   customers: Customer[];
-  displayedColumns = ['firstName', 'lastName', 'company', 'email'];
+  displayedColumns = ['firstName', 'lastName', 'company', 'email', 'info'];
   private dataSource: MatTableDataSource<Customer>;
 
 
@@ -34,5 +34,10 @@ export class CustomersComponent implements OnInit {
   }
 
 
-
+  refreshData() {
+    this.customerservice.getUsers().subscribe(data => {
+      console.log(data);
+      this.dataSource = new MatTableDataSource<Customer>(data);
+    });
+  }
 }

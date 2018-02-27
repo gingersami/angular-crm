@@ -28,7 +28,7 @@ router.get('/customers', (req, res) => {
 });
 
 router.get('/companies', (req, res) => {
-  const options = {sql:'select Companies.*, group_concat(Customers.firstName) as customers from Companies right join Customers on Customers.company_name = Companies.company_name group by Companies.company_name'};
+  let options = {sql:'select Companies.*, group_concat(Customers.firstName) as customers from Companies right join Customers on Customers.company_name = Companies.company_name group by Companies.company_name'};
   connection.query(options, (err, rows, fields) => {
     if (!err) {
       res.send(rows)
@@ -51,6 +51,22 @@ router.post('/companies', (req, res) => {
     } else {
       console.log(err)
     }
+  })
+});
+
+// router.post('/customers/:customer/comments', (req,res)=>{
+//   let options = {sql:}
+// })
+
+router.get('/customers/:email', (req,res)=>{
+    let search = {customer_email:req.params.email}
+    var options = {sql: '...', nestTables: '_'};
+    connection.query('select Customers.* from Customers where ?',search,(err,result)=>{
+      if(!err){
+        res.send(result)
+      } else {
+        console.log(err)
+      }
   })
 });
 

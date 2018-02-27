@@ -8,13 +8,13 @@
               Filter Data
             </mat-panel-title>
               </mat-expansion-panel-header>
-      
+
               <div class="example-header">
                   <mat-form-field>
                     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
                   </mat-form-field>
                 </div>
-      
+
              </mat-expansion-panel>
         <mat-expansion-panel (opened)="panelOpenState = true"
                              (closed)="panelOpenState = false">
@@ -23,9 +23,9 @@
               Add new Company
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <app-new-company></app-new-company>
+          <app-new-company (refresh)="refreshData()"></app-new-company>
         </mat-expansion-panel>
-      </mat-accordion>  
+      </mat-accordion>
   <mat-table #table [dataSource]="dataSource" matSort>
 
     <!-- First Name Column -->
@@ -46,11 +46,13 @@
       <mat-cell *matCellDef="let company"> {{company.country}} </mat-cell>
     </ng-container>
 
-     Email Column
+     <!--Email Column-->
     <ng-container matColumnDef="customers">
       <mat-header-cell *matHeaderCellDef mat-sort-header> customers </mat-header-cell>
       <mat-cell *matCellDef="let company"> {{company.customers.split(",").length}} </mat-cell>
     </ng-container>
+
+
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

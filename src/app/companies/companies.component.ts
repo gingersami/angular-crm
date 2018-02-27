@@ -33,6 +33,10 @@ export class CompaniesComponent implements OnInit {
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
-  
 
- }
+  refreshData() {
+    this.companyService.getCompanies().subscribe(data => {
+      this.dataSource = new MatTableDataSource<Company>(data);
+    });
+  }
+}

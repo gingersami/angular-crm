@@ -18,6 +18,10 @@ import { NewUserComponent } from './new-user/new-user.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { NewCompanyComponent } from './new-company/new-company.component';
+import { CustomerViewComponent } from './customer-view/customer-view.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -30,7 +34,8 @@ import { NewCompanyComponent } from './new-company/new-company.component';
     CustomersComponent,
     CompaniesComponent,
     NewUserComponent,
-    NewCompanyComponent
+    NewCompanyComponent,
+    CustomerViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +48,8 @@ import { NewCompanyComponent } from './new-company/new-company.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatExpansionModule,
+    MatCardModule,
+    MatSelectModule
   ],
   providers: [CustomerService, CompanyService],
   bootstrap: [AppComponent]

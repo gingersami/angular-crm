@@ -1,4 +1,3 @@
-import {Company} from './Company';
 import {Comment} from './Comment';
 
 export class Customer {
@@ -14,4 +13,5 @@ export class Customer {
   company_name: string;
   customer_email: string;
   phone: number;
+  Comments: Comment[];
 }

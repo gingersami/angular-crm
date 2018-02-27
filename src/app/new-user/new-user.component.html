@@ -7,7 +7,9 @@
   <input matInput type="text" [(ngModel)]="lastName" placeholder="Last Name">
 </mat-form-field>
 <mat-form-field>
-  <input matInput type="text" [(ngModel)]="companyName" placeholder="Company Name">
+  <mat-select [(value)]="companyName" placeholder="Company Name">
+    <mat-option *ngFor="let company of companies"[value]="company.company_name">{{company.company_name}}</mat-option>
+  </mat-select>
 </mat-form-field>
 <mat-form-field>
   <input matInput type="text" [(ngModel)]="phone" placeholder="phone">
@@ -15,5 +17,5 @@
   <mat-form-field>
   <input matInput type="text" [(ngModel)]="email" placeholder="email">
 </mat-form-field>
-  <button mat-raised-button color="accent" (click)="newUser()">Add new Customer</button>
+  <button mat-raised-button color="accent"  (click)="newUser()">Add new Customer</button>
 </div>
